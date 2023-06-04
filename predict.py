@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from models.car import Car
 import os
+from scraper import scrape
 
 def extract_features_and_target(cars):
     features = []
@@ -28,6 +29,10 @@ def predict_car_price(brand, model, buildyear, mileage, power):
 
     csv_file = f'{brand}_{model}.csv'.lower()
     csv_file = os.path.join('cars', csv_file)
+
+    #check if file exists
+    if not os.path.isfile(csv_file):
+        scrape(brand=brand, model=model)
 
     with open(csv_file, newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')

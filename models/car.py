@@ -5,6 +5,9 @@ class Car:
         self.brand = brand
         self.model = model
         self.buildyear = int(buildyear)
-        self.mileage = float(mileage)
+        try:
+            self.mileage = float(mileage)
+        except:
+            self.mileage = 0
         self.price = float(price)
         self.power = int(power)

@@ -12,7 +12,7 @@ cookie_compliance = {
 }
 
 
-def main():
+def scrape(brand: str = None, model: str = None):
     driver = webdriver.Firefox()
     time.sleep(1)
 
@@ -20,7 +20,13 @@ def main():
 
     click_cookies(driver)
 
-    urls = get_urls()
+    brand = brand.replace(' ', '-').lower()
+
+    if brand and model:
+        urls = [f'https://www.autoscout24.nl/lst/{brand}/{model}']
+
+    else:
+        urls = get_urls()
 
     for url in urls:
 
@@ -123,10 +129,10 @@ def get_urls():
     for car in cars:
         for brand in car:
             for model in car[brand]['models']:
-                url = f'https://www.autoscout24.nl/lst/{brand}/{model}?atype=C&cy=NL&damaged_listing=exclude&desc=0&powertype=kw&search_id=tutehtut1e&sort=standard&ustate=N%2CU'
+                url = f'https://www.autoscout24.nl/lst/{brand}/{model}'
                 urls.append(url)
 
     return urls
 
 if __name__ == "__main__":
-    main()
+    scrape()
