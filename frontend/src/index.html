@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../dist/output.css" rel="stylesheet">
+  <script src="script.js"></script>
+</head>
+<body class="bg-gray-200">
+
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-4">Price Guesser</h1>
+        <p class="text-gray-600">Guess the price of a secondary car using machine learning</p>
+        <div class="result mt-8">
+            <p id="result" class="text-2xl">Result: $0</p>
+        </div>
+
+        <div class="dropdown mt-8">
+            <input type="text" id="brand" placeholder="Brand" class="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
+            <input type="text" id="model" placeholder="Model" class="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
+            <input type="text" id="mileage" placeholder="Mileage" class="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
+            <input type="text" id="buildyear" placeholder="Buildyear" class="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
+            <input type="text" id="power" placeholder="Power" class="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
+            <button onclick="predictPrice()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg ml-4">Guess</button>
+        </div>
+    </div>
+
+</html>
